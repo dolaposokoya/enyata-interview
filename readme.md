@@ -1,1 +1,1 @@
-### Running this project make sure you have knowledge ooof envrionment variables and doocker
+## Running this project make sure you have knowledge ooof envrionment variables and docker
