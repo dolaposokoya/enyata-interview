@@ -70,14 +70,12 @@ const getCustmerOrders = async (req, res, next) => {
 const filterCustmerOrders = async (req, res, next) => {
     try {
         const currentUser = req.user
-        const { limit, page, price, asc } = req.query;
+        const { price, asc } = req.query;
         if (currentUser && currentUser?._id) {
             const user_id = currentUser?._id?.toString()
             console.log('currentUser', user_id)
             const response = await orderSchema.find({ user_id: user_id, price: { $gte: parseInt(price) } })
-            // const response = asc === true ? await orderSchema.find({ price: { $gte: parseInt(price) } }) : await orderSchema.find({ price: { $lt: parseInt(price) } });
             if (response) {
-                // res.status(200).json({ message: 'Order retrieved', success: true, payload: payload})
                 res.status(200).json({ message: 'Order retrieved', success: true, payload: response })
             }
             else {
