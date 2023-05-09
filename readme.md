@@ -19,6 +19,13 @@ ___
 
 ##### Step 4: Run command npm start
 
+---
 ### To run code with docker
 
 ###### How to set up [docker](https://www.docker.com/blog/how-to-setup-your-local-node-js-development-environment-using-docker/ "Optional Title") for node.js
+
+##### Step 1: Follow the steps in the link above
+
+---
+
+##### Step 2: Before RUN npm install, copy all your environment variable by adding ENV "your environment variable name=environment value"
