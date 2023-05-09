@@ -16,3 +16,9 @@ ___
 ##### Step 3: Create JWT secret key and JWT expiration time #NOTE - (use between 1h and 24h)
 
 -------------------------
+
+##### Step 4: Run command npm start
+
+### To run code with docker
+
+###### How to set up [docker](https://www.docker.com/blog/how-to-setup-your-local-node-js-development-environment-using-docker/ "Optional Title") for node.js
