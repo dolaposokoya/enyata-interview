@@ -1,6 +1,3 @@
-const { createUserWithEmailAndPassword } = require("firebase/auth");
-const { firebaseAuth, database } = require("../firebase.config");
-const { set, ref, push, child } = require("firebase/database");
 const orderSchema = require("../models/order.model");
 
 
