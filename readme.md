@@ -9,10 +9,10 @@
 2. JWT_EXPIRES_IN
 3. MONGO_URL
 
-
+---
 ##### Step 2: Create a mongodb url string for your database connectivity, and paste it in the mong environment.
 ___
 
-##### Step 3: Create JWT secret key and jwt expiration time #NOTE - (use between 1h and 24h)
+##### Step 3: Create JWT secret key and JWT expiration time #NOTE - (use between 1h and 24h)
 
 -------------------------
