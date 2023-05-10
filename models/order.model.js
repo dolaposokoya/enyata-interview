@@ -9,9 +9,8 @@ const orderSchema = new Schema({
     quantity: { type: String },
     price: { type: Number },
     total: { type: String },
-    user_id: { type: String },
     date_ordered: { type: Date },
-    // user_id: { type: mongoose.Schema.Types.ObjectId, ref: UserModel },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: UserModel },
 }, {
     versionKey: false,
     timestamps: true

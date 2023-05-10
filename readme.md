@@ -12,7 +12,6 @@
 1. JWT_SECRET
 2. JWT_EXPIRES_IN
 3. MONGO_URL
-4. npm install
 
 ---
 ##### Step 3: Create a mongodb url string for your database connectivity, and paste it in the mong environment.

@@ -43,8 +43,9 @@ const getCustmerOrders = async (req, res, next) => {
                 sort: {
                     createdAt: -1,
                 },
+                populate: ['user_id']
             };
-            const response = await orderSchema.paginate({ user_id: currentUser?._id }, options);
+            const response = await orderSchema.paginate({}, options);
             if (response) {
                 const { totalDocs, totalPages, pagingCounter, prevPage, nextPage, docs } = response
                 const payload = {
@@ -64,14 +65,14 @@ const getCustmerOrders = async (req, res, next) => {
     }
 }
 
+//NOTE - In the query pass in a startPrice and endPrice
 const filterCustmerOrders = async (req, res, next) => {
     try {
         const currentUser = req.user
         const { price, asc } = req.query;
+        const { startPrice, endPrice } = req.query;
         if (currentUser && currentUser?._id) {
-            const user_id = currentUser?._id?.toString()
-            console.log('currentUser', user_id)
-            const response = await orderSchema.find({ user_id: user_id, price: { $gte: parseInt(price) } })
+            const response = await orderSchema.find({ price: { $gte: parseInt(startPrice), $lte: parseInt(endPrice) } })
             if (response) {
                 res.status(200).json({ message: 'Order retrieved', success: true, payload: response })
             }
@@ -86,8 +87,32 @@ const filterCustmerOrders = async (req, res, next) => {
     }
 }
 
+
+//NOTE - To use sort pass asc=1 or -1 as url params for ascending and descending order
+const sortCustmerOrders = async (req, res, next) => {
+    try {
+        const currentUser = req.user
+        const { asc } = req.params
+        if (currentUser && currentUser?._id) {
+            const response = await orderSchema.find().sort({ "price": parseInt(asc), "_id": 1 })
+            if (response) {
+                res.status(200).json({ message: 'Order retrieved', success: true, payload: response })
+            }
+            else {
+                res.status(400).json({ message: 'Unable to get order', success: false })
+            }
+        } else {
+            res.status(401).json({ message: 'Unauthorized access', success: false })
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message, success: false })
+    }
+}
+
+
 module.exports = {
     createOrder,
     getCustmerOrders,
-    filterCustmerOrders
+    filterCustmerOrders,
+    sortCustmerOrders
 }
