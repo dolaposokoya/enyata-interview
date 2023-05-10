@@ -4,8 +4,8 @@ const { createCustomer, loginCustomer } = require('../controllers/customer.contr
 
 const router = express.Router()
 
-router.post('/create-customer', createCustomer)
+router.post('/create', createCustomer)
 
-router.post('/login-customer', loginCustomer)
+router.post('/login', loginCustomer)
 
 module.exports = router

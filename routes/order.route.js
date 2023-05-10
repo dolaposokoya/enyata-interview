@@ -5,12 +5,12 @@ const { verifyToken } = require('../middlewares/authorization.middleware')
 
 const router = express.Router()
 
-router.post('/create-order', verifyToken, createOrder)
+router.post('/create', verifyToken, createOrder)
 
-router.get('/customer-order', verifyToken, getCustmerOrders)
+router.get('/orders', verifyToken, getCustmerOrders)
 
-router.get('/filter-customer-orders', verifyToken, filterCustmerOrders)
+router.get('/filter', verifyToken, filterCustmerOrders)
 
-router.get('/sort-customer-orders/:asc', verifyToken, sortCustmerOrders)
+router.get('/sort/:asc', verifyToken, sortCustmerOrders)
 
 module.exports = router
