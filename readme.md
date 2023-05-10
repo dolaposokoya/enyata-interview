@@ -33,3 +33,10 @@ ___
 ---
 
 ##### Step 2: Before RUN npm install command, copy all your environment variable by adding ENV "your environment variable name=environment value"
+
+
+----
+
+##### Visit [postman](https://crimson-escape-292203.postman.co/workspace/Enyata-Interview~b5d3a855-624b-4056-9385-a2c1261509d0/collection/16442484-cc4d2abf-074d-4908-8291-1ce094aafacf?action=share&creator=16442484/ "Optional Title") for endpoints
+
+---
