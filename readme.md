@@ -34,7 +34,7 @@ ___
 
 ##### Step 2: Before RUN npm install command, copy all your environment variables by adding ENV "your environment variable name=environment value"
 
-##### TODO - ENV NAME=VALUE
+##### Example - ENV NAME=VALUE
 
 
 ----
