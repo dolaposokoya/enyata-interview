@@ -2,6 +2,27 @@ const UserShcema = require("../models/user.model");
 const { encryptPassword, deCryptPassword } = require("../utilities/password.utilities");
 const { generateToken } = require("../utilities/authorization.utilities");
 
+const checkIfCustomerExist = async (req, res, next) => {
+    try {
+        let { email } = req.body
+        if (email) {
+            email = email.toLowerCase();
+            const response = await UserShcema.find({ email: email })
+            if (response && response.length > 0) {
+                return res.status(400).json({ email: `Email already exist`, success: false })
+            }
+            else {
+                next()
+            }
+        }
+        else {
+            res.status(400).json({ message: 'Empty fields', success: false })
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message, success: false })
+    }
+}
+
 const createCustomer = async (req, res) => {
     try {
         const { email, password, name } = req.body
@@ -70,6 +91,7 @@ const loginCustomer = async (req, res) => {
 }
 
 module.exports = {
+    checkIfCustomerExist,
     createCustomer,
     loginCustomer
 }
